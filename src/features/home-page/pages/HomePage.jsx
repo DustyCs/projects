@@ -5,18 +5,21 @@ import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import ProjectCards from '../components/projects card/ProjectCards'
 
-const data = [
-  {
-    title: "Project 2",
-    images: ["https://via.placeholder.com/150"],
-    description: "This is a description for Project 1.",
-    links: [
-      { label: "GitHub", url: "https://github.com" },
-      { label: "Live Demo", url: "https://example.com" }
-    ],  
-    tags: ["tag1", "tag2"]
-  }
-]
+import { Link } from "react-router-dom";
+import { projects } from "../../../data/projects";
+
+// const data = [
+//   {
+//     title: "Project 2",
+//     images: ["https://via.placeholder.com/150"],
+//     description: "This is a description for Project 1.",
+//     links: [
+//       { label: "GitHub", url: "https://github.com" },
+//       { label: "Live Demo", url: "https://example.com" }
+//     ],  
+//     tags: ["tag1", "tag2"]
+//   }
+// ]
 
 export default function HomePage() {
   return (
@@ -34,14 +37,15 @@ export default function HomePage() {
                     </div>
 
                 </div>  
+                {/* <div className='mt-8 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50'>
+                    <ProjectCards {...data[0]}/> */}
+                {/* </div> */}
                 <div className='mt-8 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50'>
-                    {/* <div className='p-4 h-[23rem] shadow-2xl rounded-lg hover:shadow-lg transition-shadow cursor-pointer'>
-                      <div>
-                        <h3 className='text-2xl font-bold'>Project 1</h3>
-                        <img src="" alt="" />
-                      </div>
-                    </div> */}
-                    <ProjectCards {...data[0]}/>
+                    {projects.map((project) => (
+                        <Link key={project.slug} to={`/${project.slug}`} onClick={() => setCategoryOnLocalStorage('All')}>
+                            <ProjectCards {...project} />
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>
