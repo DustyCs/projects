@@ -1,103 +1,48 @@
 import DustyCS from '../../../assets/projects/DustyChar.png'
-import { gamesData, oldGamesData } from '../data/gamesData'
 
 import { setCategoryOnLocalStorage } from '../../../utils/helper'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import GameCard from '../components/gameCard'
-import GamesCard from '../components/gamesCard'
+import ProjectCards from '../components/projects card/ProjectCards'
+
+const data = [
+  {
+    title: "Project 2",
+    images: ["https://via.placeholder.com/150"],
+    description: "This is a description for Project 1.",
+    links: [
+      { label: "GitHub", url: "https://github.com" },
+      { label: "Live Demo", url: "https://example.com" }
+    ],  
+    tags: ["tag1", "tag2"]
+  }
+]
 
 export default function HomePage() {
-  const [currentCategory, setCurrentCategory] = useState('Horror')
-  const [tags, setTags] = useState([])
-
-  console.log("data", gamesData[0])
-
-  useEffect(() => {
-    const storedCategory = localStorage.getItem('currentCategory')
-    if (storedCategory) {
-      setCurrentCategory(storedCategory)
-    }
-  }, [])
-
-  const controls = useAnimation()
-
-  const gameTags = [
-    { name: 'Horror', id: 1 },
-    { name: 'Action', id: 2 },
-    { name: 'Adventure', id: 3 },
-    { name: 'Puzzle', id: 4 },
-  ]
-
-  const handleChange = (id) => {
-    setTags((prev) =>
-      prev.includes(id)
-        ? prev.filter((tagId) => tagId !== id)
-        : [...prev, id]
-    );
-  };
-
   return (
     <div className='h-full'>
         <div className='w-[95vw] m-auto mt-1'>
             <h1 className='text-6xl px-4 font-extrabold mb-4'>Projects</h1>
-            <div className='sm:flex w-full'>
-              <div className='bg-gray-100'>
-                <div className=''>
-                  <h2 className='text-2xl font-bold'>Category</h2>
-                  <select 
-                    className='w-full p-2 rounded-md border-2 border-gray-300'
-                    value={currentCategory}
-                    onChange={(e) => {
-                      setCurrentCategory(e.target.value)
-                      setCategoryOnLocalStorage(e.target.value)
-                    }}
-                  >
-                      <option value="Horror">Horror</option>
-                      <option value="Action">Action</option>
-                      <option value="Adventure">Adventure</option>
-                      <option value="Puzzle">Puzzle</option>
-                  </select>
-                </div>
-                <div>
-                  <motion.img
-                    src={DustyCS}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-                <div>
-                  <h4 className='text-xl'>Filter</h4>
-                  <div>
-                    {
-                      gameTags.map((tag) => (
-                        <div key={tag.id}>
-                          <label>
-                            <input type="checkbox" checked={tags.includes(tag.id)} onChange={() => handleChange(tag.id)} />
-                            {tag.name}
-                          </label>
-                        </div>
-                      ))
-                    }
-                  </div>
-                  <div style={{ marginTop: "1rem" }}>
-                    <strong>Selected Tags:</strong> {tags.map((tagId) => gameTags.find((tag) => tag.id === tagId).name).join(", ")}
-                  </div>
-                </div>
-              </div>
-              <div className='sm:grid sm:grid-cols-3 auto-rows-max grid-flow-dense sm:gap-4 sm:px-4 mt-4 w-full'> 
-                  <div className='sm:col-span-2 sm-row-span-2 bg-red-300'>
-                    {/* <GameCard props={gamesData[0]}/> Wrong way to pass props */}
-                    <GameCard {...gamesData[0]}/>
-                  </div>
-                  {oldGamesData.map((game, index) => (
-                    <div className='p-4' key={index}>
-                      <GamesCard key={index} {...game} />
+            <div>
+                <div className='flex flex-col md:flex-row gap-4'>
+                    <div className='w-full md:w-1/2 h-96 bg-gray-200 rounded-lg overflow-hidden'>
+                        <img src={DustyCS} alt="DustyCS" className='w-full h-[100%] object-cover object-center' />
                     </div>
-                  ))}
-              </div>
-      
+                    <div className='w-full md:w-1/2 flex flex-col justify-center'>
+                        <h2 className='text-4xl font-bold mb-4'>DustyCS Projects</h2>
+                        <p className='text-lg mb-4'>A collection of my programming projects, including web applications, scripts, and tools. Explore my work and see what I've been building!</p>
+                    </div>
+
+                </div>  
+                <div className='mt-8 sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50'>
+                    {/* <div className='p-4 h-[23rem] shadow-2xl rounded-lg hover:shadow-lg transition-shadow cursor-pointer'>
+                      <div>
+                        <h3 className='text-2xl font-bold'>Project 1</h3>
+                        <img src="" alt="" />
+                      </div>
+                    </div> */}
+                    <ProjectCards {...data[0]}/>
+                </div>
             </div>
         </div>
     </div>
