@@ -18,6 +18,10 @@ import LifeTime11 from "../assets/projects/LifeTme/11.png"
 import LifeTime12 from "../assets/projects/LifeTme/12.png"
 
 import RPSOnline from "../assets/projects/RPSOnline.png"
+import RPSOnlineLobby from "../assets/projects/RPS Online/Lobby.PNG"
+import RPSOnlineGamePage from "../assets/projects/RPS Online/Game Page.PNG"
+import RPSOnlineGameDecide from "../assets/projects/RPS Online/Game Decide.PNG"
+
 
 import CrusadersSkirmish from "../assets/projects/GameLatest.png"
 
@@ -49,43 +53,39 @@ export const projects = [
     gallery: [
       {
         image: [LifeTime1],
-        description: "This is the first image"
+        description: "A clean login and registration system with password recovery. Users who forget their password receive an email with a secure reset link, ensuring account safety."
       },
       {
         image: [LifeTime2],
-        description: "This is the second image"
+        description: "The main dashboard displays a Sunday-to-Saturday weekly calendar, where users can create schedules or activities, track health logs, and receive basic AI-powered insights."
       },
       {
-        image: [LifeTime3],
-        description: "This is the third image"
-      },
-      {
-        image: [LifeTime4],
-        description: "This is the fourth image"
+        image: [LifeTime3, LifeTime4],
+        description: "A dedicated page for creating, updating, and deleting activities and schedules, with visual progress tracking to keep users motivated."
       },
       {
         image: [LifeTime5],
-        description: "This is the fifth image"
+        description: "A summary view of activities, health data, insights, and schedules, all consolidated into a monthly performance overview."
       },
       {
         image: [LifeTime6],
-        description: "This is the sixth image"
+        description: "A detailed AI-generated monthly report from Gemini AI, showing how users performed against their personal goals and habits."
       },
       {
         image: [LifeTime7],
-        description: "This is the seventh image"
+        description: "A year-long summary that highlights key trends, milestones, and performance metrics across all tracked activities."
       },
       {
         image: [LifeTime8],
-        description: "This is the eighth image"
+        description: "A hub where users can configure alarms and download the Android app. Alarms can be customized beyond device notifications to include email, Facebook, or Discord alerts."
       },
       {
         image: [LifeTime9],
-        description: "This is the ninth image"
+        description: "A secure dashboard for admins with access to user data, health insights, and AI reports. Admins can manage permissions, control feature visibility, and send system-wide notifications."
       },
       {
         image: [LifeTime10],
-        description: ""
+        description: "A supporting interface under development for expanding LifeTime’s functionality."
       },
       {
         image: [LifeTime11],
@@ -93,8 +93,8 @@ export const projects = [
       },
       {
         image: [LifeTime12],
-        description: "The LifeTime App"
-      }
+        description: "LifeTime App"
+      },
     ],
     links: [
       { label: "Visit", url: "https://lifetime-schedules.web.app" }
@@ -123,15 +123,19 @@ export const projects = [
   {
     title: "Rock Paper Scissors Online",
     slug: "rps-online",
-    description: "RPS Online is made by API Polling to check in interval the status of both players",
+    description: "An online multiplayer Rock-Paper-Scissors game built to practice API polling before transitioning to real-time sockets.",
     gallery: [
       {
         image: [RPSOnline],
-        description: "Another feature screenshot"
+        description: "The backend, developed with Node.js, Express, and TypeScript, handles game logic and API requests, tested with Jest for reliability. The frontend uses React, styled with Tailwind CSS, and enhanced with Framer Motion animations and React Icons. Helmet was added for basic security."
       },
       {
-        image: ["https://via.placeholder.com/150"],
-        description: "Final demo screenshot"
+        image: [RPSOnlineLobby],
+        description: "This project gave me hands-on experience with state management, API integration, and component design, while following production-like best practices. It also served as an early step in my MERN stack journey, laying the groundwork for future projects focused on real-time multiplayer features with Socket.IO."
+      },
+      {
+        image: [RPSOnlineGamePage, RPSOnlineGameDecide],
+        description: "The game's primary interface, built with React and Tailwind CSS, features a responsive design and dynamic game logic."
       }
     ],
     links: [
@@ -147,12 +151,8 @@ export const projects = [
     description: "This project takes me back to when I first began learning PHP, jQuery, and MySQL a few years ago. It became my very first web-based game project—a simple implementation of Rock-Paper-Scissors where match data was stored in a MySQL database. Even now, the database still lives on my computer as a little time capsule of my early work. ",
     gallery: [
       {
-        image : [],
-        description: "What made it special was that it introduced me to my first real CRUD operations. Every win, loss, or tie was saved, teaching me how databases interact with web applications in practice. I also got my first taste of design challenges. At the time, I was nervous about using images pulled from the internet, so I decided to draw all the game assets myself in Krita. Looking back, it was a small but meaningful step toward both creativity and responsibility in my projects."
-      },
-      {
         image: [RpsPHP, RpsPHP3],
-        description: "At its core, the game was straightforward—just a classic offline Rock-Paper-Scissors match. You make your choice, the computer randomly selects its move, and the outcome is stored in the MySQL database. What made it fun was being able to view your entire game history: each round displayed your choice, the computer’s response, the result, the exact timestamp, and even a unique game ID."
+        description: "What made it special was that it introduced me to my first real CRUD operations. Every win, loss, or tie was saved, teaching me how databases interact with web applications in practice. I also got my first taste of design challenges. At the time, I was nervous about using images pulled from the internet, so I decided to draw all the game assets myself in Krita. Looking back, it was a small but meaningful step toward both creativity and responsibility in my projects. At its core, the game was straightforward—just a classic offline Rock-Paper-Scissors match. You make your choice, the computer randomly selects its move, and the outcome is stored in the MySQL database. What made it fun was being able to view your entire game history: each round displayed your choice, the computer’s response, the result, the exact timestamp, and even a unique game ID."
       },
       {
         image: [RpsPHP2],
