@@ -110,7 +110,7 @@ export const projects = [
     gallery: [
       {
         image: [CrusadersSkirmish],
-        description: "Another feature screenshot"
+        description: "In Development"
       }
     ],
     links: [
