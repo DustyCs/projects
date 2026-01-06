@@ -9,7 +9,7 @@ export default function ProjectCards({ title, gallery, description, links, tags 
                 )
             }
             {/* <img src={images[0]} alt={title} className='w-full h-40 object-cover object-center my-2 rounded-md' /> */}
-            <p className='text-md mb-2'>{description.slice(0, 150)}...</p>
+            <p className='text-md mb-2'>{description.slice(0, 140)}...</p>
             <div className='flex flex-wrap gap-2'>
                 {tags.slice(0, 5).map((tag, index) => (
                     <span key={index} className='bg-blue-200 text-blue-800 px-2 py-1 rounded-full text-sm'>{tag}</span>

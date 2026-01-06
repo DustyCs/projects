@@ -10,12 +10,12 @@ export default function ProjectsPage() {
   return (
     <div className="p-6">
       <h1 className="text-4xl font-extrabold mb-2">{project.title}</h1>
-      <p className="mb-4">{project.description}</p>
+      <p className="mb-4 font-semibold font-sans text-lg">{project.description}</p>
 
       <div className={`flex gap-4 mb-6 ${ project.style === 'column' ? 'md:flex-col' : 'md:flex-row' }`}>
         {project.gallery.map((item, idx) => (
           <div key={idx} className="flex-1 rounded-lg overflow-hidden">
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 shadow-lg">
                 {
                   item.image.map((image, idx) => (
                     <img key={idx} src={image} alt={item.description} className="max-w-[50%]" />
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
                 }
             </div>
             {item.description && (
-              <p className="p-2 text-sm">{item.description}</p>
+              <p className="p-2 font-semibold font-sans text-md">{item.description}</p>
             )}
           </div>
         ))}
